@@ -1,5 +1,7 @@
 Nmap
 nmap -sP -PR subnet -oG ActiveHosts/Ports
+netdiscover -i eth0 -> not to use will take long time
+nmap -sn -PA 10.10.1.1/24 -oG liveips.txt
 
 To get OS version of all servers in the Subnet
 nmap -O 10.10.1.1/24 
