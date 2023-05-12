@@ -6,6 +6,8 @@ nmap -O 10.10.1.1/24
 
 To scan FTP site for all servers in the Subnet
 Nmap -p 21 10.10.1.0/24
+nmap -Pn -p<portnumber> -oG <logfilename.gnmap> <target networks>
+nmap -Pn -p 3389 -oG RDPhosts.txt 10.10.1.0/24
 
 Identifying HMI Systems 
 nmap -Pn -sT -p 46824 <Target IP>
