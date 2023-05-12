@@ -1,0 +1,15 @@
+Get http user name and password using wireshark
+Open Wireshark; Open Pcap file
+filter type: http.request.method==POST
+filter: http
+Click Edit -> Find Packet
+Click Display filter and select "String"
+Click Packet List and select "Packet details"
+Click Narrow and wide and select "Narrow (UTF8 / ASCII)"
+type pwd and find
+
+DOS & DDOS Attack
+Go to Wireshark; Open PCAP file
+Goto Statistics -> Conversations
+Goto IPV4
+find different IP's targetting Victim with many number of packets
