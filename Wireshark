@@ -13,3 +13,8 @@ Go to Wireshark; Open PCAP file
 Goto Statistics -> Conversations
 Goto IPV4
 find different IP's targetting Victim with many number of packets
+
+covert message:
+Check through wireshart with filter TCP between Source and Destination
+*In this we have to use Covert TCP technique to analyses the pcapng file.
+Traverse though each line in Wireshark and concentrate on Identification field, keep an eye on Hex value and ANSI value.***
