@@ -14,3 +14,11 @@ create folder receive
   parrot
   ./covert_tcp -dest 10.10.1.9 -source 10.10.1.13 -source_port 8888 -dest_port 9999 -file /home/attacker/Desktop/Send/message.txt
   
+
+Hide files using NTFS streams
+Create magic folder in C: drive
+  copy calc.exe from c:\windows\system2 to c:\magic folder
+  create readme.txt in c:\magic folder
+  
+  c:\magic>type c:\magic\calc.exe > c:\magic\readme.txt:calc.exe
+  mklink backdoor.exe readme.txt:calc.exe
