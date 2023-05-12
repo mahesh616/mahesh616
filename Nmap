@@ -9,6 +9,15 @@ Nmap -p 21 10.10.1.0/24
 nmap -Pn -p<portnumber> -oG <logfilename.gnmap> <target networks>
 nmap -Pn -p 3389 -oG RDPhosts.txt 10.10.1.0/24
 
+To find DNS Server hosting www.moviescope.com
+Nmap -T4 -A -v www.moviescope.com 
+
+whatweb www.moviescope.com
+
+To find server directories
+Nmap -sV –script=http-enum www.moviescope.com
+Gobuster dir www.moviescope.com
+
 Identifying HMI Systems 
 nmap -Pn -sT -p 46824 <Target IP>
 
