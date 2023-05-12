@@ -1,0 +1,39 @@
+Nmap
+To get OS version of all servers in the Subnet
+nmap -O 10.10.1.1/24 
+
+To scan FTP site for all servers in the Subnet
+Nmap -p 21 10.10.1.0/24
+
+Identifying HMI Systems 
+nmap -Pn -sT -p 46824 <Target IP>
+
+Scanning Siemens SIMATIC S7 PLCs
+nmap -Pn -sT -p 102 --script s7-info <Target IP>
+
+Scanning Ethernet/IP Devices
+nmap -Pn -sU -p 44818 --script enip-info <Target IP>
+
+Scanning Niagara Fox Devices
+nmap -Pn -sT -p 1911,4911 --script fox-info <Target IP>
+
+
+FTP 21 :: SMTP 25 :: RDP 3389 :: MySQL 3306
+
+How to FTP Site:
+Parrot OS -> Terminal: Type ftp Enter
+ftp> Enter user name
+Enter password
+After successful login -> ls to list files
+ftp> get flag.txt /home/attacker/Desktop/flag.txt
+ftp> exit
+cd /home/attacker/Desktop
+pluma flag.txt
+cat flag.txt
+
+.hex file with cry -> cryptool
+
+to Decode an encoded file with password provided use BCTextEncoder 
+
+SNOW -C -m "secret message pin number 3456" -p "magic123" readme.txt readme1.txt
+SNOW -C -p "magic123" readme1.txt
